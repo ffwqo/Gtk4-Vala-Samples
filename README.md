@@ -1,4 +1,4 @@
-Gtk 4 version of the original [vala-gtk-exampels](https://github.com/gerito1/vala-gtk-examples). Visit there for more information.
+Gtk 4 version of the original [vala-gtk-exampels](https://github.com/gerito1/vala-gtk-examples).
 
 Use 
 
@@ -21,6 +21,7 @@ ninja -C build <file_name>
 to build a specific example.
 
 # Deprecated
+According to [gtk4 docs](https://docs.gtk.org/gtk4/migrating-3to4.html) these were deprecated
 
 - GtkButtonbox
 - GtkFileChooserButton
@@ -33,7 +34,7 @@ to build a specific example.
 
 - need to figure out which GtkSourceView version works with gtk4
 - same problem with webkit2gtk
-- Valadoc example
+- port Valadoc examples
 - maybe a full application
 
 # Examples for Vala Gtk
