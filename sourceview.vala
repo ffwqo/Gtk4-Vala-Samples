@@ -1,4 +1,5 @@
 /*
+ * TODO broken
  * SourceView is a Gtk widget used to display text similarly to TextView widget
  * but also is support syntax highlights as many code editors.
  *
