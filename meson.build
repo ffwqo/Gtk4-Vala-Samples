@@ -39,7 +39,10 @@ sources = [
     'stackswitcher.vala',
     'texteditor.vala',
     'togglebutton.vala',
-    #'webkit2.vala'
+    #'webkit2.vala',
+    
+    'signalfactory.vala',
+    'builderfactory.vala',
 
     ]
 foreach t_file : sources
