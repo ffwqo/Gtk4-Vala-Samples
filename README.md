@@ -1,3 +1,4 @@
+#Gtk4 Vala Sampels
 Gtk 4 version of the original [vala-gtk-exampels](https://github.com/gerito1/vala-gtk-examples).
 
 Use 
@@ -35,8 +36,10 @@ According to [gtk4 docs](https://docs.gtk.org/gtk4/migrating-3to4.html) these we
 - need to figure out which GtkSourceView version works with gtk4
 - same problem with webkit2gtk
 - port Valadoc examples
-- maybe a full application
+- maybe a full application and/or port of gtk4-demo, widget factory
 
+
+-----
 # Examples for Vala Gtk
 
 This repository contains some basic examples for using Vala and GTK4.

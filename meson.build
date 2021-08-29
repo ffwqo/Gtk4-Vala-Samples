@@ -9,8 +9,16 @@ dependencies = [
   #dependency('webkit2gtk-4.0')
   #dependency('gtksourceview-4'),
 ]
+
+gnome = import('gnome')
+#TODO fix this 
+resources = gnome.compile_resources(
+    'resources',
+    'gtk4_vala_samples.gresource.xml'
+)
 sources = [
     'actionbar.vala',
+    'applauncher.vala',
     'box.vala',
     'button.vala',
     'checkbutton.vala',
@@ -43,6 +51,8 @@ sources = [
     
     'signalfactory.vala',
     'builderfactory.vala',
+    'filterlistmodel.vala',
+    'filterlistmodel_uifile.vala',
 
     ]
 foreach t_file : sources

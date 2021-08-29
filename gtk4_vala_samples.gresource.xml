@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/ui_files">
+    <file>./filterlistmodel_uifile.ui</file>
+  </gresource>
+</gresources>
