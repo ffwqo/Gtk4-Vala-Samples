@@ -1,7 +1,8 @@
-#Gtk4 Vala Sampels
-Collection of vala samples.  Mostly gtk4 version of the original
+# Gtk4 Vala Sampels
+
+Collection of vala samples.  Gtk4 version of the original
 [vala-gtk-exampels](https://github.com/gerito1/vala-gtk-examples) and ports of
-the gtk4-demo and some other applications.
+the gtk4-demo and some other applications/experiments.
 
 Use 
 
@@ -38,13 +39,22 @@ According to [gtk4 docs](https://docs.gtk.org/gtk4/migrating-3to4.html) these we
 
 # TODO 
 
-- need to figure out which GtkSourceView version works with gtk4
-- same problem with webkit2gtk
-- port Valadoc examples
-- maybe a full application and/or port of gtk4-demo, widget factory
+- [] need to figure out which GtkSourceView version works with gtk4
+- [] same problem with webkit2gtk
+- [] port Valadoc examples
+- [] maybe a full application and/or port of gtk4-demo, widget factory
     - [x] applauncher
     - [] filebrowser with thumbnails and different views
     - [] shadertoy version maybe a vertex shader art version instead
 
 ---- 
-For more information and links see [vala-gtk-exampels](https://github.com/gerito1/vala-gtk-examples).
+
+For more information and links see 
+
+[vala-gtk-exampels](https://github.com/gerito1/vala-gtk-examples)
+
+[valadoc](https://valadoc.org/gtk4/index.htm)
+
+[gtk docs](https://docs.gtk.org/gtk4/)
+
+

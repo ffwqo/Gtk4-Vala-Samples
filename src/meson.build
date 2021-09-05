@@ -1,2 +1,2 @@
-subdir('gtk4-port')
+subdir('gtk4-basic')
 subdir('gtk4-demo-port')

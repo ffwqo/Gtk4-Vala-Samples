@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="ExampleWindow" parent="GtkApplicationWindow">
+      <property name="title">FileBrowser</property>
+      <property name="default_width">600</property>
+      <property name="default_height">600</property>
+      <child type="titlebar">
+        <object class="GtkHeaderBar" id="headerbar">
+          <child>
+            <object class="GtkBox" id="headerbox">
+              <property name="orientation">horizontal</property>
+              <property name="spacing">0</property>
+              <child>
+                <object class="GtkButton" id="listbtn">
+                  <property name="label">List</property>
+                  <property name="action-name">win.view</property>
+                  <property name="action-target">&apos;list&apos;</property>
+                  <style>
+                    <class name="listbtn"></class>
+                  </style>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton" id="gridbtn">
+                  <property name="label">Grid</property>
+                  <property name="action-name">win.view</property>
+                  <property name="action-target">&apos;grid&apos;</property>
+                  <style>
+                    <class name="gridbtn"></class>
+                  </style>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+      <child>
+        <object class="GtkBox" id="mainbox">
+          <property name="orientation">vertical</property>
+          <property name="spacing">5</property>
+          <child>
+              <object class="GtkScrolledWindow" id="scroll">
+                <property name="hexpand">TRUE</property>
+                <property name="vexpand">TRUE</property>
+              </object>
+          </child>
+        </object>
+      </child>
+  <object class="GtkListView" id="listview">
+    <property name="model">
+      <object class="GtkSingleSelection" id="sselection">
+        <property name="model">
+          <object class="GtkSortListModel" id="sorterlist">
+            <property name="sorter">
+              <object class="GtkStringSorter" id="stringsorter">
+                <property name="ignore_case">TRUE</property>
+              </object>
+            </property>
+            <property name="model">
+              <object class="GtkDirectoryList" id="dlist">
+                <property name="attributes">standard::name,standard::icon,standard::content-type,thumbnail::path</property>
+              </object>
+              </property>
+          </object>
+      </property>
+      </object>
+    </property>
+    <property name="factory">
+      <object class="GtkSignalListItemFactory" id="signalfactory">
+        <signal name="setup" handler="setup_items"></signal>
+        <signal name="bind" handler="bind_items"></signal>
+      </object>
+    </property>
+  </object>
+  <object class="GtkGridView" id="gridview">
+    <property name="model">sselection</property>
+    <property name="factory">signalfactory</property>
+  </object>
+  </template>
+</interface>

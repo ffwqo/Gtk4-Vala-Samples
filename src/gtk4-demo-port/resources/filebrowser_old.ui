@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="ExampleWindow" parent="GtkApplicationWindow">
+      <property name="title">FileBrowser</property>
+      <property name="default_width">600</property>
+      <property name="default_height">600</property>
+      <child type="titlebar">
+        <object class="GtkHeaderBar" id="headerbar">
+          <child>
+            <object class="GtkBox" id="headerbox">
+              <property name="orientation">horizontal</property>
+              <property name="spacing">5</property>
+              <child>
+                <object class="GtkButton">
+                  <!--property name="label">Btn1</property-->
+                  <binding name="label">
+                    <closure type="gchararray" function="test_func">
+                    </closure>
+                  </binding>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">Btn2</property>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+  </template>
+</interface>
