@@ -6,7 +6,8 @@
  * vala templte ui attributes and signal registration seems to be bugged thus
  * SignalListItemFactory is used rather than BuilderListItemFactory
  *
- * view by column => open a new scrolled window with the filesystem in question..
+ * TODO
+ * - [] implement view by column blocks like on elementary finder
  *
  */
 
@@ -110,24 +111,55 @@ class ExampleWindow : Gtk.ApplicationWindow {
     private unowned Gtk.SignalListItemFactory signalfactory;
     [GtkChild]
     private unowned Gtk.StringSorter stringsorter;
+
+    [GtkChild]
+    private unowned Gtk.FilterListModel filterlist;
+    private Gtk.EveryFilter multifilter;
+
     [GtkChild]
     private unowned Gtk.DirectoryList dlist;
+
+    [GtkChild]
+    private unowned Gtk.SearchEntry searchentry;
 
     public ExampleWindow(Gtk.Application app) {
         Object(application : app);
 
 
-        //dlist.set_file( GLib.File.new_for_path("/home/pex/Pictures") );
         stringsorter.set_expression( new Gtk.CClosureExpression(typeof( string) , 
                                            null , {} , 
                                            (GLib.Callback) get_file_name_sort, 
                                          null, null) );
 
+
+        multifilter = new Gtk.EveryFilter();
+        var dotfilter = new Gtk.FileFilter();
+        dotfilter.add_pattern("[!.]*");
+        multifilter.append(dotfilter);
+        filterlist.set_filter(multifilter);
+
+        searchentry.placeholder_text = "Filter";
+        searchentry.search_changed.connect( (entry) => {
+            var expression = new Gtk.CClosureExpression(typeof( string) , 
+                                               null , {} , 
+                                               (GLib.Callback) get_file_name_sort, 
+                                             null, null);
+            var stringfilter = new Gtk.StringFilter(expression);
+            stringfilter.set_match_mode(Gtk.StringFilterMatchMode.SUBSTRING);
+            stringfilter.set_ignore_case(true);
+            stringfilter.set_search( entry.get_text() );
+
+            if( multifilter.get_n_items() > 1) {
+                multifilter.remove( multifilter.get_n_items() -1);
+            }
+
+            multifilter.append(stringfilter);
+        });
+
+        //style the button
         scroll.set_child(gridview);
         var variant_param = new GLib.Variant.string("grid");
         var res = variant_param.get_string();
-
-        //style the button
         var css_provider = new Gtk.CssProvider();
         string css_string;
         switch(res) {

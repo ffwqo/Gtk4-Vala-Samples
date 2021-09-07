@@ -2,20 +2,11 @@
  * Port of the FileBrowser demo with search as FilterListModel, sort via SortListModel,
  * thumbnail are set over THUMBNAIL_PATH that often fails to load.
  *
- * When using GtkHeaderBar is the application kills itself once I rightclick on
- * the title bar I assume its because of some weird kde/gtk bug where a single
- * rightclick is registered as two clicks and the close button is triggered as
- * the frist element by default.
- *
- * ListView is buggy when scrolling..
  *
  * TODO 
  * - [] offer a details view 
- * - [] a switch between the both
  * - [] save scroll position
  * - [] context menu to hide dotfiles via a MultiFilter
- * - [] look into alternatives to THUMBNAIL_PATH
- * - [] fix the weird bug where names start being appended to the path bar
  */
 
 

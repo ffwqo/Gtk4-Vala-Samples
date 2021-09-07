@@ -39,6 +39,10 @@
           <property name="orientation">vertical</property>
           <property name="spacing">5</property>
           <child>
+            <object class="GtkSearchEntry" id="searchentry">
+            </object>
+          </child>
+          <child>
               <object class="GtkScrolledWindow" id="scroll">
                 <property name="hexpand">TRUE</property>
                 <property name="vexpand">TRUE</property>
@@ -50,17 +54,25 @@
     <property name="model">
       <object class="GtkSingleSelection" id="sselection">
         <property name="model">
-          <object class="GtkSortListModel" id="sorterlist">
-            <property name="sorter">
-              <object class="GtkStringSorter" id="stringsorter">
-                <property name="ignore_case">TRUE</property>
+          <object class="GtkFilterListModel" id="filterlist">
+            <!--property name="filter">
+              <object class="GtkFileFilter" id="filefilter">
+              </object>
+            </property-->
+            <property name="model">
+              <object class="GtkSortListModel" id="sorterlist">
+                <property name="sorter">
+                  <object class="GtkStringSorter" id="stringsorter">
+                    <property name="ignore_case">TRUE</property>
+                  </object>
+                </property>
+                <property name="model">
+                  <object class="GtkDirectoryList" id="dlist">
+                    <property name="attributes">standard::name,standard::display-name,standard::icon,standard::content-type,thumbnail::path</property>
+                  </object>
+                  </property>
               </object>
             </property>
-            <property name="model">
-              <object class="GtkDirectoryList" id="dlist">
-                <property name="attributes">standard::name,standard::icon,standard::content-type,thumbnail::path</property>
-              </object>
-              </property>
           </object>
       </property>
       </object>
